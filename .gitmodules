@@ -1,0 +1,3 @@
+[submodule "waiter-server"]
+	path = waiter-server
+	url = https://git.magisystem.xyz/SpaceNightstands/Waiter-Server.git
