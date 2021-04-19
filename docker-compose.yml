@@ -1,0 +1,22 @@
+version: "3.5"
+
+services:
+  waiter:
+    image: localhost/waiter:0.1.1
+    environment:
+      - "DATABASE_URL=mysql://waiter:waiter@db/waiter"
+      - "JWT_SECRET=test"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+  db:
+    image: mariadb:5.5.57
+    environment:
+      - MYSQL_USER=waiter
+      - MYSQL_PASSWORD=waiter
+      - MYSQL_DATABASE=waiter
+      - MYSQL_RANDOM_ROOT_PASSWORD=y
+    volumes:
+      - ./database:/var/lib/mysql
+
