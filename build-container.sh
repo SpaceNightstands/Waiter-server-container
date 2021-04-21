@@ -3,7 +3,7 @@
 SERVER_FOLDER="$(pwd)/waiter-server"
 
 #Compile with musl for linux
-sudo podman run --rm -it -v "$SERVER_FOLDER":/home/rust/src ekidd/rust-musl-builder cargo build --release
+sudo podman run --rm -it -e SQLX_OFFLINE=true -v "$SERVER_FOLDER":/home/rust/src ekidd/rust-musl-builder cargo build --release
 
 #Start creating image from alpine linux
 CONTAINER="$(buildah from alpine)"
