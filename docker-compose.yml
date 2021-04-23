@@ -18,5 +18,5 @@ services:
       - MYSQL_DATABASE=waiter
       - MYSQL_RANDOM_ROOT_PASSWORD=y
     volumes:
-      - ./database:/var/lib/mysql
+      - ./database:/var/lib/mysql:Z
 
