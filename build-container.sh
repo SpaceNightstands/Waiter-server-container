@@ -14,12 +14,10 @@ buildah copy --add-history "$CONTAINER" "$SERVER_FOLDER/migrations" /migrations
 #Install sqlx-cli
 buildah run --add-history "$CONTAINER" apk update
 buildah run --add-history "$CONTAINER" apk upgrade
-buildah run --add-history "$CONTAINER" apk add cargo openssl-dev
-buildah run --add-history "$CONTAINER" cargo install sqlx-cli --no-default-features --features mysql
 
 #Set entrypoint
-buildah config --add-history=true --entrypoint "/root/.cargo/bin/sqlx migrate run && /Waiter" "$CONTAINER"
+buildah config --add-history=true --entrypoint "/Waiter" "$CONTAINER"
 
-buildah commit "$CONTAINER" "waiter:0.1.1"
+buildah commit "$CONTAINER" "waiter:0.1.2"
 buildah rm "$CONTAINER"
 
