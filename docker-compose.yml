@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   waiter:
-    image: localhost/waiter:0.1.1
+    image: localhost/waiter:latest
     environment:
       - "DATABASE_URL=mysql://waiter:waiter@db/waiter"
       - "JWT_SECRET=test"

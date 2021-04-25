@@ -18,6 +18,7 @@ buildah run --add-history "$CONTAINER" apk upgrade
 #Set entrypoint
 buildah config --add-history=true --entrypoint "/Waiter" "$CONTAINER"
 
-buildah commit "$CONTAINER" "waiter:0.1.2"
+buildah commit "$CONTAINER" "waiter:$(cat $SERVER_FOLDER/Cargo.toml | grep version | head -n 1 | cut -d'"' -f2)"
+buildah commit "$CONTAINER" "waiter:latest"
 buildah rm "$CONTAINER"
 
