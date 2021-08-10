@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+set -e
 
 SERVER_FOLDER="$(pwd)/waiter-server"
 
